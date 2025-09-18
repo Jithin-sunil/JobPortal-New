@@ -1,0 +1,171 @@
+
+<?php
+include("../Assets/Connection/Connection.php");
+include('Header.php');
+
+// Reject Applicant
+if (isset($_GET['rid'])) {
+    $upQry = "UPDATE tbl_application SET application_status = 2 
+              WHERE application_id = '" . $_GET['rid'] . "' 
+              AND jobpost_id IN (SELECT jobpost_id FROM tbl_jobpost WHERE company_id = '" . $_SESSION['cid'] . "')";
+    if ($Con->query($upQry)) {
+        ?>
+        <script>
+            alert("Rejected");
+            window.location = "VerifiedApplicant.php";
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            alert("Failed to Reject");
+            window.location = "VerifiedApplicant.php";
+        </script>
+        <?php
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="codepixer">
+    <title>Verified Applicants</title>
+
+
+    <style>
+        .applicant-section {
+            padding: 80px 0;
+            background: #f9f9ff;
+        }
+        .applicant-table {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .applicant-table h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #222;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .table th {
+            background: #f44a40;
+            color: #fff;
+            font-weight: 600;
+        }
+        .table td {
+            background: #fff;
+            color: #555;
+        }
+        .action-link {
+            color: #f44a40;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .action-link:hover {
+            color: #e33a30;
+            text-decoration: underline;
+        }
+        .user-details, .job-details {
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .applicant-table {
+                padding: 20px;
+            }
+            .table th, .table td {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .user-details, .job-details {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="applicant-section">
+        <div class="container">
+            <div class="applicant-table">
+                <h3>Verified Applicants</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>User Details</th>
+                            <th>Job Details</th>
+                            <th>Apply Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 0;
+                        $selQry = "SELECT * FROM tbl_application a 
+                                   INNER JOIN tbl_user u ON a.user_id = u.user_id 
+                                   INNER JOIN tbl_jobpost p ON a.jobpost_id = p.jobpost_id 
+                                   INNER JOIN tbl_company c ON c.company_id = p.company_id 
+                                   WHERE c.company_id = '" . $_SESSION['cid'] . "' 
+                                   AND a.application_status = 1";
+                        $row = $Con->query($selQry);
+                        if ($row->num_rows == 0) {
+                            ?>
+                            <tr>
+                                <td colspan="5" class="text-center" style="color: #f44a40;">No verified applicants found.</td>
+                            </tr>
+                            <?php
+                        } else {
+                            while ($data = $row->fetch_assoc()) {
+                                $i++;
+                                ?>
+                                <tr>
+                                    <td><?php echo $i; ?></td>
+                                    <td class="user-details">
+                                        <strong>Name:</strong> <?php echo htmlspecialchars($data['user_name']); ?><br>
+                                        <strong>Contact:</strong> <?php echo htmlspecialchars($data['user_contact']); ?><br>
+                                        <strong>Email:</strong> <?php echo htmlspecialchars($data['user_email']); ?><br>
+                                        <strong>Address:</strong> <?php echo htmlspecialchars($data['user_address']); ?>
+                                    </td>
+                                    <td class="job-details">
+                                        <strong>Job Post:</strong> <?php echo htmlspecialchars($data['jobpost_title']); ?><br>
+                                        <strong>Experience:</strong> <?php echo htmlspecialchars($data['jobpost_experience']); ?>
+                                    </td>
+                                    <td><?php echo htmlspecialchars($data['application_date']); ?></td>
+                                    <td>
+                                        <a href="VerifiedApplicant.php?rid=<?php echo $data['application_id']; ?>" 
+                                           class="action-link" 
+                                           onclick="return confirm('Are you sure you want to reject this applicant?');">Reject</a>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <?php include('Footer.php'); ?>
+
+</body>
+</html>
