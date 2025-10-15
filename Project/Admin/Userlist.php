@@ -32,7 +32,7 @@
 <form id="form1" name="form1" method="post" action="">
   <div align="center">
     <p>User List</p>
-    <table width="200" border="1">
+    <table width="200" border="1" class = "table table-bordered table-hover">
       <tr>
         <td>Sl No</td>
         <td>Name</td>
@@ -73,7 +73,7 @@
 		 if($data['user_status']==0)
 		 {
 		 ?>
-         <a href = "Userlist.php?rid=<?php echo $data['user_id']?>">Remove</a>
+         <a href = "Userlist.php?rid=<?php echo $data['user_id']?> "class="btn btn-outline-danger btn-sm">Remove</a>
 
          <?php
 		   }

@@ -104,7 +104,7 @@ if (isset($_POST['btn_submit'])) {
                 <h3>Extend Submission Date</h3>
                 <form id="form1" name="form1" method="post" action="">
                     <div class="form-group">
-                        <label for="txt_date">New Submission Date</label>
+                        <label for="txt_date"></label>
                         <input type="date" name="txt_date" id="txt_date" class="form-control" 
                                min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required />
                     </div>

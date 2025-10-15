@@ -38,31 +38,27 @@ if ($row->num_rows > 0) {
         ?>
         
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title"><?php echo $data['jobpost_title']; ?></h5>
-                    <p class="card-text text-muted mb-2">
-                        <?php echo $data['jobpost_content']; ?>
-                    </p>
-                    <ul class="list-unstyled small mb-3">
-                        <li><strong>Experience:</strong> <?php echo $data['jobpost_experience']; ?></li>
-                        <li><strong>Type:</strong> <?php echo $data['jobtype_name']; ?></li>
-                        <li><strong>Category:</strong> <?php echo $data['category_name']; ?></li>
-                        <li><strong>Last Date:</strong> <?php echo $data['jobpost_lastdate']; ?></li>
-                    </ul>
-                    <div class="mt-auto">
-                        <a href="Viewmore.php?eid=<?php echo $data['jobpost_id']; ?>" 
-                           class="btn btn-outline-primary btn-sm">View More</a>
-                        <?php if ($applicationDisabled) { ?>
-                            <span class="badge ">Application Closed</span>
-                        <?php } else { ?>
-                            <a href="Application.php?eid=<?php echo $data['jobpost_id']; ?>" 
-                               class="btn btn-primary btn-sm ms-2">Apply Now</a>
-                        <?php } ?>
+                    <div class="card job-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><?php echo htmlspecialchars($data['jobpost_title']); ?></h5>
+                            <p class="card-text text-muted mb-2"><?php echo htmlspecialchars($data['jobpost_content']); ?></p>
+                            <ul class="list-unstyled small mb-3">
+                                <li><strong>Experience:</strong> <?php echo htmlspecialchars($data['jobpost_experience']); ?></li>
+                                <li><strong>Type:</strong> <?php echo htmlspecialchars($data['jobtype_name']); ?></li>
+                                <li><strong>Category:</strong> <?php echo htmlspecialchars($data['category_name']); ?></li>
+                                <li><strong>Last Date:</strong> <?php echo htmlspecialchars($data['jobpost_lastdate']); ?></li>
+                            </ul>
+                            <div class="mt-auto d-flex gap-2">
+                                <a href="Viewmore.php?eid=<?php echo $data['jobpost_id']; ?>" class="outline-btn">View More</a>
+                                <?php if ($applicationDisabled) { ?>
+                                    <span class="badge-closed">Application Closed</span>
+                                <?php } else { ?>
+                                    <a href="Application.php?eid=<?php echo $data['jobpost_id']; ?>" class="primary-btn">Apply Now</a>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
         
         <?php
     }

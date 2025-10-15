@@ -113,20 +113,23 @@ $data = $row->fetch_assoc();
                         <label for="txt_email">Email</label>
                         <input type="email" name="txt_email" id="txt_email" class="form-control" 
                                value="<?php echo htmlspecialchars($data['company_email']); ?>" 
-                               required />
+                                   placeholder="example@domain.com"
+                                   required 
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                   title="Please enter a valid email address (lowercase only, e.g., example@domain.com)"               
+                       required />
                     </div>
                     <div class="form-group">
                         <label for="txt_contact">Contact</label>
-                        <input type="tel" name="txt_contact" id="txt_contact" class="form-control" 
-                               value="<?php echo htmlspecialchars($data['company_contact']); ?>" 
-                               pattern="[6-9]{1}[0-9]{9}" 
-                               title="Phone number must start with 6-9 and be 10 digits long" 
-                               maxlength="10" 
-                               required />
+                        <input type="tel" name="txt_contact" id="txt_contact" class="form-control"
+                        pattern="[6-9]{1}[0-9]{9}" 
+                        minlength="10" maxlength="10"
+                        title="10 digits starting with 6/7/8/9"
+                        required />
                     </div>
                     <div class="form-group">
                         <label for="txt_address">Address</label>
-                        <textarea name="txt_address" id="txt_address" class="form-control" required><?php echo htmlspecialchars($data['company_address']); ?></textarea>
+                        <textarea name="txt_address" id="txt_address" class="form-control" row=5 required><?php echo htmlspecialchars($data['company_address']); ?></textarea>
                     </div>
                     <div class="form-group text-center">
                         <button type="submit" name="btn_update" id="btn_update" class="primary-btn">Update</button>

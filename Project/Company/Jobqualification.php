@@ -152,7 +152,7 @@ if (isset($_GET['rid'])) {
                 <h3>Add Job Qualification</h3>
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="sel_qualification">Qualification</label>
+                        <label for="sel_qualification"></label>
                         <select name="sel_qualification" id="sel_qualification" class="form-control" required>
                             <option value="">-- Select Qualification --</option>
                             <?php

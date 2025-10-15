@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Modernize Free</title>
+    <title>JobPortal</title>
     <link rel="shortcut icon" type="image/png" href="../Assets/Templates/Admin/assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="../Assets/Templates/Admin/assets/css/styles.min.css" />
 </head>
@@ -19,7 +19,17 @@
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./index.html" class="text-nowrap logo-img">
-                        <img src="../Assets/Templates/Admin/assets/images/logos/dark-logo.svg" width="180" alt="" />
+                        <!-- <img src="../Assets/Templates/Admin/assets/images/logos/dark-logo.svg" width="180" alt="" /> -->
+                        <h4 style="
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2a5298;
+  letter-spacing: 1px;
+">
+  <span style="color:#ff4d4d;">Job</span>Portal
+</h4>
+
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -69,6 +79,26 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="companytype.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-user-plus"></i>
+                                </span>
+                                <span class="hide-menu">Company Category</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="companycategory.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-user-plus"></i>
+                                </span>
+                                <span class="hide-menu">Company Type</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">JobPost Data</span>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="Category.php" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-cards"></i>
@@ -84,14 +114,7 @@
                                 <span class="hide-menu">Job Type</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="Questioncategory.php" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-typography"></i>
-                                </span>
-                                <span class="hide-menu">Question Category</span>
-                            </a>
-                        </li>
+    
 
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="Qualification.php" aria-expanded="false">
@@ -117,12 +140,16 @@
                                 <span class="hide-menu">Language</span>
                             </a>
                         </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Question Category</span>
+                        </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="companytype.php" aria-expanded="false">
+                            <a class="sidebar-link" href="Questioncategory.php" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-user-plus"></i>
+                                    <i class="ti ti-typography"></i>
                                 </span>
-                                <span class="hide-menu">Company Type</span>
+                                <span class="hide-menu">Question Category</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -176,15 +203,37 @@
                             </a>
                         </li>
 
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Complaints</span>
+                        </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="ViewComplaint.php" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-aperture"></i>
                                 </span>
-                                <span class="hide-menu">ViewComplaint</span>
+                                <span class="hide-menu">View User Complaint</span>
                             </a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="ViewCompanyComplaint.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-aperture"></i>
+                                </span>
+                                <span class="hide-menu">View Company Complaint</span>
+                            </a>
+                        </li>
+
+                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="Report.php" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-aperture"></i>
+                                </span>
+                                <span class="hide-menu">Report</span>
+                            </a>
+                        </li>
 
                     </ul>
 

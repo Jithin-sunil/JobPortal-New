@@ -1,4 +1,3 @@
-
 <?php
 include("../Assets/Connection/Connection.php");
 include('Header.php');
@@ -21,7 +20,6 @@ $row = $Con->query($selQry);
     <meta name="keywords" content="">
     <meta name="author" content="codepixer">
     <title>My Applications</title>
-
 
     <style>
         .application-section {
@@ -80,6 +78,10 @@ $row = $Con->query($selQry);
             color: #dc3545;
             font-weight: 500;
         }
+        .status-info {
+            color: #007bff;
+            font-weight: 500;
+        }
         @media (max-width: 768px) {
             .application-table {
                 padding: 20px;
@@ -123,26 +125,30 @@ $row = $Con->query($selQry);
                                 <strong>Contact:</strong> <?php echo htmlspecialchars($data['company_contact']); ?><br><br>
                                 <strong>Email:</strong> <?php echo htmlspecialchars($data['company_email']); ?>
                             </td>
-                            <td><?php echo htmlspecialchars($data['application_date']); ?></td>
+                            <td><?php echo date("d-m-Y", strtotime($data['application_date'])); ?></td>
                             <td>
                                 <?php
                                 if ($data['application_status'] == 0) {
                                     echo '<span class="status-pending">Application Pending.</span>';
                                 } elseif ($data['application_status'] == 1) {
                                     echo '<span class="status-accepted">Application Accepted.</span>';
+                                    
                                     if ($data['jobpost_recruitment'] == 0) {
-                                        if (($data['exam_datetime'] == date('Y-m-d')) && ($data['exam_status'] == 1)) {
+                                        $examDate = date("Y-m-d", strtotime($data['exam_date'])); 
+                                        $today    = date("Y-m-d");
+
+                                        if (($examDate == $today) && ($data['exam_status'] == 1)) {
                                             echo '<br><a href="Exam.php?jid=' . htmlspecialchars($data['jobpost_id']) . '" class="status-link">Start Exam</a>';
                                         } else if ($data['exam_status'] == 2) {
-                                            echo '<br>Exam Ended.';
+                                            echo '<br><span class="status-info">Exam completed. Our team will contact you soon.</span>';
                                         } else {
-                                            echo '<br>Exam Date: ' . htmlspecialchars($data['exam_datetime']);
+                                            echo '<br>Exam Date: ' . date("d-m-Y H:i", strtotime($data['exam_date']));
                                         }
                                     } else {
                                         echo '<br>Our team will contact you soon.';
                                     }
-                                } else {
-                                    echo '<span class="status-rejected">Application Rejected.</span>';
+                                } else if ($data['application_status'] == 3) {
+                                    echo '<span class="status-rejected">Our team will contact you soon</span>';
                                 }
                                 ?>
                             </td>

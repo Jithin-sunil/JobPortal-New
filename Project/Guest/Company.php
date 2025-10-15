@@ -1,379 +1,268 @@
-<?php
-include("../Assets/Connection/Connection.php");
-if(isset($_POST['btn_submit']))
-{
-	$name=$_POST['txt_name'];
-	$email=$_POST['txt_email'];
-	$contact=$_POST['txt_contact'];
+<?php 
+include("../Assets/Connection/Connection.php"); 
+
+if(isset($_POST['btn_submit'])) {
+    $name=$_POST['txt_name'];
+    $email=$_POST['txt_email'];
+    $contact=$_POST['txt_contact'];
     $address=$_POST['txt_address'];
-	
-	$licnum=$_POST['txt_idnumber'];
-	
-	$logo=$_FILES['file_logo']['name'];
-	$templogo=$_FILES['file_logo']['tmp_name'];
-	move_uploaded_file($templogo,'../Assets/Files/Company_Registration/Logo/'.$logo);
-	
-	$license=$_FILES['file_license']['name'];
-	$templicense=$_FILES['file_license']['tmp_name'];
-	move_uploaded_file($templicense,'../Assets/Files/Company_Registration/License/'.$license);
-	
-	$password=$_POST['txt_password'];
-	$companycategory=$_POST['sel_companycategory'];
-	$place=$_POST['sel_place'];
-	$companytype=$_POST['sel_companytype'];
-	
-     $insQry = "insert into tbl_company(company_name, company_email,company_contact, company_address, company_logo, company_license, place_id,companytype_id, companycategory_id, company_password,company_licensenumber) values('".$name."','".$email."','".$contact."','".$address."','".$logo."','".$license."','".$place."','".$companytype."','".$companycategory."','".$password."','".$licnum."')";
-	if($Con->query($insQry))
-	{
-		?>
-		<script>
-		alert("Insertion Successfully");
-		window.location="Company.php";
-		</script>
-		
-	   <?php	
-	}
-     else
-	 {
-		  ?>
-		<script>
-		alert("Insertion Failed");
-		window.location="Company.php";
-		</script> 
-			<?php 
-	 }
- }
- 
+    $licnum=$_POST['txt_idnumber'];
 
- ?>
+    $logo=$_FILES['file_logo']['name'];
+    $templogo=$_FILES['file_logo']['tmp_name'];
+    move_uploaded_file($templogo,'../Assets/Files/Company_Registration/Logo/'.$logo);
 
+    $license=$_FILES['file_license']['name'];
+    $templicense=$_FILES['file_license']['tmp_name'];
+    move_uploaded_file($templicense,'../Assets/Files/Company_Registration/License/'.$license);
+
+    $password=$_POST['txt_password'];
+    $companycategory=$_POST['sel_companycategory'];
+    $place=$_POST['sel_place'];
+    $companytype=$_POST['sel_companytype'];
+
+    $insQry = "insert into tbl_company(company_name, company_email,company_contact, company_address, company_logo, company_license, place_id,companytype_id, companycategory_id, company_password,company_licensenumber) 
+    values('".$name."','".$email."','".$contact."','".$address."','".$logo."','".$license."','".$place."','".$companytype."','".$companycategory."','".$password."','".$licnum."')";
+
+    if($Con->query($insQry)) {
+        ?>
+        <script>
+        alert("Insertion Successfully");
+        window.location="../index.php";
+        </script>
+        <?php 
+    } else { 
+        ?>
+        <script>
+        alert("Insertion Failed");
+        window.location="Company.php";
+        </script>
+        <?php 
+    } 
+} 
+?>
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../Assets/Templates/Main/img/fav.png">
-    <!-- Author Meta -->
-    <meta name="author" content="codepixer">
-    <!-- Meta Description -->
-    <meta name="description" content="Company Registration Page">
-    <!-- Meta Keyword -->
-    <meta name="keywords" content="job listing, company registration">
-    <!-- Meta Character Set -->
-    <meta charset="UTF-8">
-    <!-- Site Title -->
-    <title>Company Registration</title>
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/linearicons.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/bootstrap.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/magnific-popup.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/nice-select.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/animate.min.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/owl.carousel.css">
-    <link rel="stylesheet" href="../Assets/Templates/Main/css/main.css">
-    <!-- Custom CSS -->
-    <style>
-        .form-section {
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            margin: 50px 0;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .form-section h3 {
-            color: #222;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .form-control {
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-        .form-group label {
-            font-weight: 500;
-            color: #333;
-        }
-        .primary-btn {
-            background: #f74d4d;
-            color: #fff;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
-        }
-        .primary-btn:hover {
-            background: #d43c3c;
-        }
-        .lottie-container {
-            max-width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .form-container {
-            min-height: 600px;
-            display: flex;
-            align-items: stretch;
-        }
-        @media (max-width: 991px) {
-            .form-container {
-                flex-direction: column;
-            }
-            .lottie-container {
-                max-height: 400px;
-            }
-            .form-section {
-                margin-top: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<title>Company Registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .registration-container {
+        max-width: 850px;
+        margin: 50px auto;
+        background: rgba(255,255,255,0.92); /* transparent white card */
+        padding: 40px 50px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        animation: fadeIn 1s ease-in-out;
+    }
+    .registration-container h3 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+        color: #007bff;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #333;
+    }
+    .form-control, .form-select {
+        margin-bottom: 20px;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease-in-out;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff;
+        box-shadow: 0px 0px 8px rgba(0,123,255,0.4);
+    }
+    textarea {
+        resize: none;
+    }
+    .btn-primary {
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        background: linear-gradient(to right, #007bff, #00c6ff);
+        border: none;
+        transition: 0.3s;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(to right, #0056b3, #007bff);
+        transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header id="header" id="home">
-        <div class="container">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo">
-                    <a href="../index.html"><img src="../Assets/Templates/Main/img/logo.png" alt="" title="" /></a>
-                </div>
-                <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                        <li><a href="../index.php">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li class="menu-has-children"><a href="">Sign Up</a>
-                            <ul>
-                                <li class="menu-active"><a href="Company.php">Company Registration</a></li>
-                                <li><a href="UserRegistration.php">User Registration</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="Login.php">Login</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+<div class="container">
+<div class="registration-container">
+<h3>Company Registration</h3>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
 
-    <!-- Start Banner Area -->
-    <section class="banner-area relative" id="home">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row fullscreen d-flex align-items-center justify-content-center">
-                <div class="banner-content col-lg-12">
-                    <h1 class="text-white">Register Your <span>Company</span></h1>
-                    <p class="text-white">Join our platform to connect with top talent and grow your business.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Banner Area -->
+    <div class="mb-3">
+        <label for="txt_name" class="form-label">Name</label>
+        <input type="text" name="txt_name" id="txt_name" class="form-control"
+            minlength="3" maxlength="16"
+            pattern="^[A-Z][a-zA-Z ]+$"
+            title="Name must start with a capital letter and contain only letters and spaces"
+            required />
+    </div>
 
-    <!-- Start Form Area -->
-    <section class="section-gap">
-        <div class="container">
-            <div class="row form-container">
-                <div class="col-lg-6 lottie-container">
-                    <lottie-player src="https://lottie.host/de62bc79-3005-4af0-a081-7892f3f29b05/oTSHETXZsJ.json" background="transparent" speed="1" style="width: 100%; max-width: 500px; height: auto;" loop autoplay></lottie-player>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-section">
-                        <h3>Company Registration</h3>
-                        <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
-                            <div class="form-group">
-                                <label for="txt_name">Company Name</label>
-                                <input type="text" class="form-control" name="txt_name" id="txt_name" minlength="3" title="Name Allows Only Alphabets, Spaces and First Letter Must Be Capital Letter" pattern="^[A-Z]+[a-zA-Z ]*$" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_address">Address</label>
-                                <textarea class="form-control" name="txt_address" id="txt_address" rows="4" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel_companycategory">Company Category</label>
-                                <select class="form-control" name="sel_companycategory" id="sel_companycategory" required>
-                                    <option>- Select Company Category -</option>
-                                    <?php
-                                    include("../Assets/Connection/Connection.php");
-                                    $selQry = "select * from tbl_companycategory where companycategory_status=0 ORDER BY companycategory_name ASC";
-                                    $row = $Con->query($selQry);
-                                    while ($data = $row->fetch_assoc()) {
-                                        echo "<option value='{$data['companycategory_id']}'>{$data['companycategory_name']}</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_email">Email</label>
-                                <input type="email" class="form-control" name="txt_email" id="txt_email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_contact">Contact</label>
-                                <input type="text" class="form-control" name="txt_contact" id="txt_contact" maxlength="10" pattern="[6-9]{1}[0-9]{9}" title="Phone number with 6-9 and remaining 9 digits with 0-9" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_idnumber">License Number</label>
-                                <input type="text" class="form-control" name="txt_idnumber" id="txt_idnumber" required>
-                                <label for="file_license">Upload License (PDF)</label>
-                                <input type="file" class="form-control" name="file_license" id="file_license" accept="application/pdf" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel_state">State</label>
-                                <select class="form-control" name="sel_state" id="sel_state" onchange="getDistrict(this.value)" required>
-                                    <option>- Select State -</option>
-                                    <?php
-                                    $selQry = "select * from tbl_state where state_status=0 ORDER BY state_name ASC";
-                                    $row = $Con->query($selQry);
-                                    while ($data = $row->fetch_assoc()) {
-                                        echo "<option value='{$data['state_id']}'>{$data['state_name']}</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel_district">District</label>
-                                <select class="form-control" name="sel_district" id="sel_district" onchange="getPlace(this.value)" required>
-                                    <option>- Select District -</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel_place">Place</label>
-                                <select class="form-control" name="sel_place" id="sel_place" required>
-                                    <option>- Select Place -</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="file_logo">Logo</label>
-                                <input type="file" class="form-control" name="file_logo" id="file_logo" accept="image/*" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel_companytype">Company Type</label>
-                                <select class="form-control" name="sel_companytype" id="sel_companytype" required>
-                                    <option>- Select Company Type -</option>
-                                    <?php
-                                    $selQry = "select * from tbl_companytype where companytype_status=0 ORDER BY companytype_name ASC";
-                                    $row = $Con->query($selQry);
-                                    while ($data = $row->fetch_assoc()) {
-                                        echo "<option value='{$data['companytype_id']}'>{$data['companytype_name']}</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="txt_password">Password</label>
-                                <input type="password" class="form-control" name="txt_password" id="txt_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters" required>
-                            </div>
-                            <div class="form-group text-center">
-                                <button type="submit" name="btn_submit" id="btn_submit" class="primary-btn">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Form Area -->
+    <div class="mb-3">
+        <label for="txt_address" class="form-label">Address</label>
+        <textarea name="txt_address" id="txt_address" class="form-control" rows="5" required></textarea>
+    </div>
 
-    <!-- Start Footer Area -->
-    <footer class="footer-area section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-12">
-                    <div class="single-footer-widget">
-                        <h6>Top Products</h6>
-                        <ul class="footer-nav">
-                            <li><a href="#">Managed Website</a></li>
-                            <li><a href="#">Manage Reputation</a></li>
-                            <li><a href="#">Power Tools</a></li>
-                            <li><a href="#">Marketing Service</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="single-footer-widget newsletter">
-                        <h6>Newsletter</h6>
-                        <p>You can trust us. we only send promo offers, not a single spam.</p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-                                <div class="form-group row" style="width: 100%">
-                                    <div class="col-lg-8 col-md-12">
-                                        <input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required type="email">
-                                        <div style="position: absolute; left: -5000px;">
-                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
-                                    </div>
-                                </div>
-                                <div class="info"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-12">
-                    <div class="single-footer-widget">
-                        <h6>Follow Us</h6>
-                        <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- End Footer Area -->
+  <div class="mb-3">
+    <label for="sel_companycategory" class="form-label">Company Category</label>
+    <select name="sel_companycategory" id="sel_companycategory" class="form-select" required>
+        <option value="" disabled selected>-select companycategory-</option>
+        <?php 
+        $selQry="select * from tbl_companycategory where companycategory_status=0 ORDER BY companycategory_name ASC";
+        $row=$Con->query($selQry);
+        while($data=$row->fetch_assoc()) {
+        ?>
+            <option value ="<?php echo $data['companycategory_id']?>"><?php echo $data['companycategory_name'] ?></option>
+        <?php } ?>
+    </select>
+</div>
 
-    <!-- Scripts -->
-    <script src="../Assets/Templates/Main/js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="../Assets/Templates/Main/js/vendor/bootstrap.min.js"></script>
-    <script src="../Assets/Templates/Main/js/easing.min.js"></script>
-    <script src="../Assets/Templates/Main/js/hoverIntent.js"></script>
-    <script src="../Assets/Templates/Main/js/superfish.min.js"></script>
-    <script src="../Assets/Templates/Main/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../Assets/Templates/Main/js/jquery.magnific-popup.min.js"></script>
-    <script src="../Assets/Templates/Main/js/owl.carousel.min.js"></script>
-    <script src="../Assets/Templates/Main/js/jquery.sticky.js"></script>
-    <script src="../Assets/Templates/Main/js/jquery.nice-select.min.js"></script>
-    <script src="../Assets/Templates/Main/js/parallax.min.js"></script>
-    <script src="../Assets/Templates/Main/js/mail-script.js"></script>
-    <script src="../Assets/Templates/Main/js/main.js"></script>
-    <!-- Lottie Player -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- AJAX Script -->
-    <script>
-        function getDistrict(sid) {
-            $.ajax({
-                url: "../Assets/AjaxPages/AjaxDistrict.php?sid=" + sid,
-                success: function(result) {
-                    $("#sel_district").html(result);
-                }
-            });
+
+    <div class="mb-3">
+    <label for="txt_email" class="form-label">Email</label>
+    <input type="email" 
+           name="txt_email" 
+           id="txt_email" 
+           class="form-control" 
+           placeholder="example@domain.com"
+           required 
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+           title="Please enter a valid email address (lowercase only, e.g., example@domain.com)" />  
+</div>
+
+
+
+    <div class="mb-3">
+        <label for="txt_contact" class="form-label">Contact</label>
+        <input type="tel" name="txt_contact" id="txt_contact" class="form-control"
+        pattern="[6-9]{1}[0-9]{9}" 
+        minlength="10" maxlength="10"
+        title="10 digits starting with 6/7/8/9"
+        required />
+    </div>
+
+    <div class="mb-3">
+        <label for="txt_idnumber" class="form-label">License Identification Number</label>
+        <input type="text" name="txt_idnumber" id="txt_idnumber" class="form-control"
+            minlength="8" maxlength="16"
+            pattern="[A-Z0-9]{8,16}"
+            title="License number must be 8-16 characters (capital letters and numbers only)"
+            required />
+    </div>
+
+    <div class="mb-3">
+        <label for="file_license" class="form-label">Upload License (PDF)</label>
+        <input type="file" name="file_license" id="file_license" class="form-control"
+            accept="application/pdf" required />
+    </div>
+<div class="mb-3">
+    <label for="sel_state" class="form-label">State</label>
+    <select name="sel_state" id="sel_state" class="form-select" onChange="getDistrict(this.value)" required>
+        <option value="">-select state-</option>
+        <?php 
+        $selQry="select * from tbl_state where state_status=0 ORDER BY state_name ASC";
+        $row=$Con->query($selQry);
+        while($data=$row->fetch_assoc()) {
+        ?>
+            <option value ="<?php echo $data['state_id']?>"><?php echo $data['state_name']?></option>
+        <?php } ?>
+    </select>
+</div>
+
+<div class="mb-3">
+    <label for="sel_district" class="form-label">District</label>
+    <select name="sel_district" id="sel_district" class="form-select" onChange="getPlace(this.value)" required>
+        <option value="">-select District-</option>
+    </select>
+</div>
+
+<div class="mb-3">
+    <label for="sel_place" class="form-label">Place</label>
+    <select name="sel_place" id="sel_place" class="form-select" required>
+        <option value="">-select place-</option>
+    </select>
+</div>
+
+    <div class="mb-3">
+        <label for="file_logo" class="form-label">Upload Logo (Image)</label>
+        <input type="file" name="file_logo" id="file_logo" class="form-control"
+            accept="image/*" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="sel_companytype" class="form-label">Company Type</label>
+        <select name="sel_companytype" id="sel_companytype" class="form-select" required>
+            <option>-select company type-</option>
+            <?php 
+            $selQry="select * from tbl_companytype where companytype_status=0 ORDER BY companytype_name ASC";
+            $row=$Con->query($selQry);
+            while($data=$row->fetch_assoc()) {
+            ?>
+                <option value ="<?php echo $data['companytype_id']?>"><?php echo $data['companytype_name']?></option>
+            <?php } ?>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="txt_password" class="form-label">Password</label>
+        <input type="password" name="txt_password" id="txt_password" class="form-control"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            required />
+    </div>
+
+    <div class="text-center">
+        <input type="submit" name="btn_submit" id="btn_submit" class="btn btn-primary px-5" value="Submit" />
+    </div>
+
+</form>
+</div>
+</div>
+
+<script src="../Assets/JQ/jQuery.js"></script>
+<script>
+function getDistrict(sid) {
+    $.ajax({
+        url: "../Assets/AjaxPages/AjaxDistrict.php?sid=" + sid,
+        success: function (result) {
+            $("#sel_district").html(result);
         }
-
-        function getPlace(pid) {
-            $.ajax({
-                url: "../Assets/AjaxPages/AjaxPlace.php?pid=" + pid,
-                success: function(result) {
-                    $("#sel_place").html(result);
-                }
-            });
+    });
+}
+function getPlace(pid) {
+    $.ajax({
+        url: "../Assets/AjaxPages/AjaxPlace.php?pid=" + pid,
+        success: function (result) {
+            $("#sel_place").html(result);
         }
-    </script>
+    });
+}
+</script>
 </body>
 </html>

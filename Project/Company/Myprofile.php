@@ -7,7 +7,7 @@ $selQry = "SELECT * FROM tbl_company c
            INNER JOIN tbl_place p ON c.place_id = p.place_id 
            INNER JOIN tbl_district d ON p.district_id = d.district_id 
            INNER JOIN tbl_state s ON d.state_id = s.state_id 
-           WHERE c.company_id = '" . $_SESSION['cid'] . "'";
+           WHERE c.company_id = '". $_SESSION['cid'] ."'";
 $row = $Con->query($selQry);
 $data = $row->fetch_assoc();
 ?>

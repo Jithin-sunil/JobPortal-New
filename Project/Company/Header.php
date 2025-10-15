@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -15,7 +18,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Job Listing</title>
+    <title>JobPortal</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -37,15 +40,25 @@
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
-                    <a href="index.html"><img src="../Assets/Templates/Main/img/logo.png" alt="" title="" /></a>
+                    <!-- <a href="index.html"><img src="../Assets/Templates/Main/img/logo.png" alt="" title="" /></a> -->
+                      <h4 style="
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2a5298;
+  letter-spacing: 1px;
+">
+  <span style="color:#ff4d4d;">JobPortal</span>
+</h4>
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="Homepage.php">Home</a></li>
                         <li><a href="Jobpost.php">Post Jobs</a></li>
                         <li><a href="ViewApplication.php">View Applications</a></li>
-                        <li><a href="ViewApplication.php">View Result</a></li>
+                        <!-- <li><a href="ViewApplication.php">View Result</a></li> -->
                         <li><a href="Myprofile.php">My Profile</a></li>
+                        <li><a href="Complaint.php">Complaint</a></li>
                         
                         
                           <li><a href="../Logout.php">Logout</a></li>

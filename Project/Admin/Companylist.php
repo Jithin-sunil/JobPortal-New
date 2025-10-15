@@ -103,7 +103,7 @@
             <a href = "Companylist.php?aid=<?php echo $data['company_id']?>">Accept</a>
             <?php
 		  }else{
-			  echo "Temporary Unavilable";
+			  echo "Permanently Banned";
 		  }	
 			
 			?></td>

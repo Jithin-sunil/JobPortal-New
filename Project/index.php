@@ -1,298 +1,320 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="en">
 
 <head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="Assets/Templates/Main/img/fav.png">
-    <!-- Author Meta -->
-    <meta name="author" content="codepixer">
-    <!-- Meta Description -->
-    <meta name="description" content="">
-    <!-- Meta Keyword -->
-    <meta name="keywords" content="">
-    <!-- meta character set -->
-    <meta charset="UTF-8">
-    <!-- Site Title -->
-    <title>Job Listing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal - Find Your Dream Career</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    <!--
-			CSS
-			============================================= -->
-    <link rel="stylesheet" href="Assets/Templates/Main/css/linearicons.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/bootstrap.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/magnific-popup.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/nice-select.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/animate.min.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/owl.carousel.css">
-    <link rel="stylesheet" href="Assets/Templates/Main/css/main.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #2a5298;
+      padding: 15px 0;
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff !important;
+    }
+
+    .navbar-brand span {
+      color: #ff4d4d;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+
+    .nav-link:hover {
+      color: #ffcc00 !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1500&q=80") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .btn-custom {
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn-primary-custom {
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary-custom:hover {
+      background: #ff1a1a;
+    }
+
+    .btn-outline-custom {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .btn-outline-custom:hover {
+      background: #fff;
+      color: #000;
+    }
+    /* Hero Search Bar */
+.hero-search-form {
+  max-width: 700px;
+  width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 50px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.hero-search-input {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50px 0 0 50px;
+  flex: 1;
+  font-size: 16px;
+}
+
+.hero-search-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.hero-search-btn {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-weight: 600;
+  border-radius: 0 50px 50px 0;
+  transition: background 0.3s;
+}
+
+.hero-search-btn:hover {
+  background: #ff1a1a;
+}
+
+
+    /* Categories */
+    .categories {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .categories h2 {
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .category-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .category-card i {
+      font-size: 35px;
+      color: #2a5298;
+      margin-bottom: 15px;
+    }
+
+    /* Call to Action */
+    .cta {
+      background: linear-gradient(to right, #2a5298, #1e3c72);
+      color: #fff;
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 40px 0;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff4d4d;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <header id="header" id="home">
-        <div class="container">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo">
-                    <a href="index.html"><img src="Assets/Templates/Main/img/logo.png" alt="" title="" /></a>
-                </div>
-                <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                        <li class="menu-active"><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        
-                        <li class="menu-has-children"><a href="">Sign Up</a>
-                            <ul>
-                                <li><a href="Guest/Company.php">Company Registration</a></li>
-                                <li><a href="Guest/UserRegistration.php">User Registration</a></li>
-                                
-                            </ul>
-                        </li>
-                      
-                        <li class="menu-active"><a href="Guest/Login.php">Login</a></li>
-                    </ul>
-                </nav><!-- #nav-menu-container -->
-            </div>
-        </div>
-    </header><!-- #header -->
+ <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.php"><span>Job</span>Portal</a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Home -->
+        <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
 
+        <!-- Sign Up Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="signupDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sign Up
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="signupDropdown">
+            <li><a class="dropdown-item" href="Guest/Company.php">Company Registration</a></li>
+            <li><a class="dropdown-item" href="Guest/UserRegistration.php">User Registration</a></li>
+          </ul>
+        </li>
 
-    <!-- start banner Area -->
-    <section class="banner-area relative" id="home">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-            <div class="row fullscreen d-flex align-items-center justify-content-center">
-                <div class="banner-content col-lg-12">
-                    <h1 class="text-white">
-                        The future  <span>belongs </span> to the Brave  
-                    </h1>
-                    
-                    <p class="text-white"><span> Start</span> your journey today -<span> discover  jobs</span>, prove your<span> skills</span> and open doors to your <span>dream career</span> 
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End banner Area -->
-
-    <!-- Start features Area -->
-    <section class="features-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature">
-                        <h4>Searching</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature">
-                        <h4>Applying</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature">
-                        <h4>Security</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="single-feature">
-                        <h4>Notifications</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End features Area -->
-
-
-    <!-- Start feature-cat Area -->
-    <section class="feature-cat-area pt-100" id="category">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content pb-60 col-lg-10">
-                    <div class="title text-center">
-                        <h1 class="mb-10">Featured Job Categories</h1>
-                        <p>Who are in extremely love with eco friendly system.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o1.png" alt="">
-                        </a>
-                        <p>Accounting</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o2.png" alt="">
-                        </a>
-                        <p>Development</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o3.png" alt="">
-                        </a>
-                        <p>Technology</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o4.png" alt="">
-                        </a>
-                        <p>Media & News</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o5.png" alt="">
-                        </a>
-                        <p>Medical</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="single-fcat">
-                        <a href="category.html">
-                            <img src="Assets/Templates/Main/img/o6.png" alt="">
-                        </a>
-                        <p>Goverment</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End feature-cat Area -->
-
-    <!-- Start post Area -->
-    <section class="post-area section-gap">
         
-    </section>
-    <!-- End post Area -->
+
+        <!-- Login -->
+        <li class="nav-item"><a class="nav-link" href="Guest/Login.php">Login</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your Dream Job Today</h1>
+      <p>Discover opportunities, showcase your skills, and take the first step towards your career goals.</p>
+      <a href="#" class="btn btn-custom btn-primary-custom me-3">Get Started</a>
+      <a href="#" class="btn btn-custom btn-outline-custom">Learn More</a>
+    </div>
+  </section>
 
 
-    <!-- Start callto-action Area -->
-    <section class="callto-action-area section-gap" id="join">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="menu-content col-lg-9">
-                    <div class="title text-center">
-                        <h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation.</p>
-                        <a class="primary-btn" href="#">I am a Candidate</a>
-                        <a class="primary-btn" href="#">Request Free Demo</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2>Featured Job Categories</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="category-card">
+            <i class="fas fa-laptop-code"></i>
+            <h5>Development</h5>
+            <p>Explore software, web, and app development opportunities.</p>
+          </div>
         </div>
-    </section>
-    <!-- End calto-action Area -->
-
-    
-
-    <!-- start footer Area -->
-    <footer class="footer-area section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3  col-md-12">
-                    <div class="single-footer-widget">
-                        <h6>Top Products</h6>
-                        <ul class="footer-nav">
-                            <li><a href="#">Managed Website</a></li>
-                            <li><a href="#">Manage Reputation</a></li>
-                            <li><a href="#">Power Tools</a></li>
-                            <li><a href="#">Marketing Service</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6  col-md-12">
-                    <div class="single-footer-widget newsletter">
-                        <h6>Newsletter</h6>
-                        <p>You can trust us. we only send promo offers, not a single spam.</p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank" novalidate="true"
-                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="form-inline">
-
-                                <div class="form-group row" style="width: 100%">
-                                    <div class="col-lg-8 col-md-12">
-                                        <input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter Email '" required="" type="email">
-                                        <div style="position: absolute; left: -5000px;">
-                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                                type="text">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-12">
-                                        <button class="nw-btn primary-btn">Subscribe<span
-                                                class="lnr lnr-arrow-right"></span></button>
-                                    </div>
-                                </div>
-                                <div class="info"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-12">
-                    
-                </div>
-            </div>
-
-            <div class="row footer-bottom d-flex justify-content-between">
-                
-                <div class="col-lg-4 col-sm-12 footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-behance"></i></a>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="category-card">
+            <i class="fas fa-briefcase"></i>
+            <h5>Business</h5>
+            <p>Find jobs in management, finance, and consulting fields.</p>
+          </div>
         </div>
-    </footer>
-    <!-- End footer Area -->
+        <div class="col-md-4">
+          <div class="category-card">
+            <i class="fas fa-stethoscope"></i>
+            <h5>Healthcare</h5>
+            <p>Join careers in medical, nursing, and health sciences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="Assets/Templates/Main/js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="Assets/Templates/Main/js/vendor/bootstrap.min.js"></script>
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-    <script src="Assets/Templates/Main/js/easing.min.js"></script>
-    <script src="Assets/Templates/Main/js/hoverIntent.js"></script>
-    <script src="Assets/Templates/Main/js/superfish.min.js"></script>
-    <script src="Assets/Templates/Main/js/jquery.ajaxchimp.min.js"></script>
-    <script src="Assets/Templates/Main/js/jquery.magnific-popup.min.js"></script>
-    <script src="Assets/Templates/Main/js/owl.carousel.min.js"></script>
-    <script src="Assets/Templates/Main/js/jquery.sticky.js"></script>
-    <script src="Assets/Templates/Main/js/jquery.nice-select.min.js"></script>
-    <script src="Assets/Templates/Main/js/parallax.min.js"></script>
-    <script src="Assets/Templates/Main/js/mail-script.js"></script>
-    <script src="Assets/Templates/Main/js/main.js"></script>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Join Us Today Without Any Hesitation</h2>
+      <p>Start your journey today and unlock countless opportunities in your field.</p>
+      <a href="#" class="btn btn-custom btn-primary-custom">Sign Up</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2025 JobPortal. All rights reserved.</p>
+      <div class="social-icons mt-3">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

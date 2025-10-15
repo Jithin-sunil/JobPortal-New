@@ -1,7 +1,7 @@
 
 <?php
 include("../Assets/Connection/Connection.php");
-include('Header.php');
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -9,12 +9,7 @@ require '../Assets/phpMail/src/Exception.php';
 require '../Assets/phpMail/src/PHPMailer.php';
 require '../Assets/phpMail/src/SMTP.php';
 
-// Validate job post ID
-$jid = isset($_GET['jid']) ? (int)$_GET['jid'] : 0;
-if ($jid <= 0) {
-    echo "<script>alert('Invalid job post ID.'); window.location='JobList.php';</script>";
-    exit;
-}
+$jid=$_GET['jid'];
 
 // Check for completed exam
 $exam_query = "SELECT exam_id FROM tbl_exam WHERE jobpost_id = $jid AND exam_status = 2 LIMIT 1";
@@ -32,7 +27,7 @@ $jobQry = "SELECT j.jobpost_title, c.company_name, c.company_address, p.place_na
            INNER JOIN tbl_place p ON p.place_id = c.place_id 
            INNER JOIN tbl_district d ON d.district_id = p.district_id 
            INNER JOIN tbl_state s ON s.state_id = d.state_id 
-           WHERE j.jobpost_id = $jid AND j.company_id = '" . $_SESSION['cid'] . "'";
+           WHERE j.jobpost_id = '".$jid."' ";
 $jobRes = $Con->query($jobQry);
 $jobRow = $jobRes->fetch_assoc();
 if (!$jobRow) {
@@ -86,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send_interview'])) {
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'jobportalarjun@gmail.com'; // Replace with your actual Gmail address
-                $mail->Password = 'jberropyurlewonl'; // Replace with your actual app-specific password
+                $mail->Password = 'nvxt wijb gmil rpuh'; // Replace with your actual app-specific password
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
 
@@ -390,8 +385,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send_interview'])) {
             document.getElementById('modal-overlay').classList.remove('active');
         }
     </script>
-
-    <?php include('Footer.php'); ?>
 
 </body>
 </html>

@@ -153,7 +153,7 @@ if (isset($_GET['rid'])) {
                 <h3>Add Job Technical Skill</h3>
                 <form id="form1" name="form1" method="post" action="">
                     <div class="form-group">
-                        <label for="sel_techskill">Technical Skill</label>
+                        <label for="sel_techskill"></label>
                         <select name="sel_techskill" id="sel_techskill" class="form-control" required>
                             <option value="">-- Select Technical Skill --</option>
                             <?php

@@ -1,4 +1,4 @@
-```php
+
 <?php
 include("../Assets/Connection/Connection.php");
 include('Header.php');
@@ -185,7 +185,7 @@ include('Header.php');
                                 <li><strong>Experience:</strong> <?php echo htmlspecialchars($data['jobpost_experience']); ?></li>
                                 <li><strong>Type:</strong> <?php echo htmlspecialchars($data['jobtype_name']); ?></li>
                                 <li><strong>Category:</strong> <?php echo htmlspecialchars($data['category_name']); ?></li>
-                                <li><strong>Last Date:</strong> <?php echo htmlspecialchars($data['jobpost_lastdate']); ?></li>
+                                <li><strong>Last Date:</strong> <?php echo date("d-m-Y", strtotime($data['jobpost_lastdate'])); ?></li>
                             </ul>
                             <div class="mt-auto d-flex gap-2">
                                 <a href="Viewmore.php?eid=<?php echo $data['jobpost_id']; ?>" class="outline-btn">View More</a>
@@ -222,4 +222,3 @@ include('Header.php');
     <?php include('Footer.php'); ?>
 </body>
 </html>
-```

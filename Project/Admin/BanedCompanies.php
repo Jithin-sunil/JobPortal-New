@@ -26,7 +26,6 @@
       <td>State</td>
       <td>District</td>
       <td>Place</td>
-      <td>Action</td>
 
     </tr>
     <?php

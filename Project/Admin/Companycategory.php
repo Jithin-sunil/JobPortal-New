@@ -101,23 +101,23 @@ if($Con->query($remQry))
 <form id="form1" name="form1" method="post" action="">
 <div align="center">
 <h3>Company Category</h3>
-<table width="200" border="1">
+<table width="200" border="1" class="table table-bordered table-hover">
   <tr>
     <td>Company Category</td>
     <td><label for="txt_companycategory"></label>
      <input type="hidden" name="txt_hidden" id="txt_hidden" value = "<?php  echo $campcatid?>"/>
-      <input type="text" name="txt_companycategory" id="txt_companycategory" value = "<?php  echo $campcatname?>" required/>
+      <input type="text" name="txt_companycategory" class="form-control" id="txt_companycategory" value = "<?php  echo $campcatname?>" required/>
     </td>
   </tr>
   <tr>
     <td height="26" colspan="2"><div align="center">
-      <input type="submit" name="btn_submit" id="btn_submit" value="Submit"/>
+      <input type="submit" name="btn_submit" id="btn_submit" value="Submit" class="btn btn-outline-primary"/>
     </div></td>
     </tr>
 </table>
 <p>&nbsp;</p>
 <h3>Company Category List</h3>
-<table width="200" border="1">
+<table width="200" border="1" class="table table-bordered table-hover">
   <tr>
     <td>Sl.No</td>
     <td>Company Category</td>
@@ -138,9 +138,9 @@ if($Con->query($remQry))
     <td><?php echo $i ?></td>
     <td><?php echo $data['companycategory_name']?></td>
     <td>
-     <a href = "Companycategory.php?rid=<?php echo $data['companycategory_id']?>">remove
+     <a href = "Companycategory.php?rid=<?php echo $data['companycategory_id']?>" class="btn btn-outline-danger btn-sm">remove
      </a>
-     <a href = "Companycategory.php?eid=<?php echo $data['companycategory_id']?>">edit
+     <a href = "Companycategory.php?eid=<?php echo $data['companycategory_id']?>" class="btn btn-outline-primary btn-sm">edit
      </a>
     </td>
   </tr>

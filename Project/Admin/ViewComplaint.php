@@ -1,7 +1,7 @@
 <?php
 include("../Assets/Connection/Connection.php");
 session_start();
-include('Footer.php');
+include('Header.php');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,7 +14,7 @@ include('Footer.php');
 
 <h3>View Complaints</h3>
 <form id="form1" name="form1" method="post" action="">
-  <table border="1" cellpadding="8" >
+  <table border="1" cellpadding="8" class = "table table-bordered table-hover">
     <tr >
       <th>SI.NO</th>
       <th>User Name</th>
@@ -62,7 +62,7 @@ include('Footer.php');
 
 <h3>Replied Complaints</h3>
 <form id="form1" name="form1" method="post" action="">
-  <table border="1" cellpadding="8" >
+  <table border="1" cellpadding="8" class = "table table-bordered table-hover">
     <tr >
       <th>SI.NO</th>
       <th>User Name</th>

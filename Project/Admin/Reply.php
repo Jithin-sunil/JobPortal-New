@@ -37,19 +37,18 @@ $dataComp = $resComp->fetch_assoc();
 </head>
 <body>
 
-<h3>Reply to Complaint </h3>
+<h3>Reply to the Complaint </h3>
 
 <form id="form1" name="form1" method="post" action="">
-  <table border="1" cellpadding="5">
+  <table border="1" cellpadding="5" class="table table-bordered table-hover" >
     <tr>
-      <td>Your Reply</td>
       <td>
-        <textarea name="txt_reply" id="txt_reply" required rows="5" cols="40"></textarea>
+        <textarea name="txt_reply" id="txt_reply" required rows="5" cols="40" class="form-control" ></textarea>
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center">
-        <input type="submit" name="btn_submit" id="btn_submit" value="Submit Reply" />
+        <input type="submit" name="btn_submit" id="btn_submit" value="Submit Reply" class="btn btn-outline-primary"/>
       </td>
     </tr>
   </table>

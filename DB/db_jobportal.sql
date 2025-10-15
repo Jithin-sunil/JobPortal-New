@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2025 at 04:18 PM
+-- Generation Time: Oct 15, 2025 at 07:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,8 +39,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(8, 'Arjun', 'arjunpsff@gmail.com', 'Arjun@2025'),
-(9, 'praveen1', 'praveen1@gmail.com', 'Praveen');
+(1, 'wolvx', 'wolvx@gmail.com', 'wolvx@2025');
 
 -- --------------------------------------------------------
 
@@ -62,9 +61,11 @@ CREATE TABLE `tbl_application` (
 --
 
 INSERT INTO `tbl_application` (`application_id`, `application_date`, `application_file`, `application_status`, `user_id`, `jobpost_id`) VALUES
-(2, '2025-07-10', 'cc0ec9ee12d68ae9af646c68eed2ee4b.jpg', 0, 4, 7),
-(4, '2025-07-11', '114143.jpg', 1, 4, 4),
-(5, '2025-07-11', 'ChatGPT Image May 15, 2025, 11_07_48 PM.png', 2, 4, 5);
+(1, '2025-07-30', 'resume_orginal.pdf', 0, 1, 0),
+(2, '2025-07-30', 'resume_orginal.pdf', 2, 1, 1),
+(3, '2025-09-15', 'Ai Adaptive Solar Shingle — Patent Abstract & Ideaverse Submission.pdf', 1, 1, 4),
+(4, '2025-09-21', 'resume1.pdf', 3, 1, 6),
+(5, '2025-09-24', 'Job_Portal_Project_Documentation.pdf', 3, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -83,14 +84,13 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_status`) VALUES
-(7, 'Sales', 1),
-(8, 'Finance', 1),
-(9, 'healthcare', 0),
-(10, 'Marketing', 1),
-(11, 'sales', 0),
-(12, 'technology', 0),
-(13, 'Marketing', 1),
-(14, 'Business Administration', 0);
+(1, 'Brand Manager', 0),
+(2, 'Accountant', 0),
+(3, 'Sales Analyst', 0),
+(4, 'Accountant', 1),
+(5, 'Video Editor Role', 0),
+(6, 'Telecaller', 0),
+(7, 'Software Engineer', 0);
 
 -- --------------------------------------------------------
 
@@ -106,25 +106,26 @@ CREATE TABLE `tbl_company` (
   `company_address` varchar(500) NOT NULL,
   `company_logo` varchar(200) NOT NULL,
   `company_license` varchar(500) NOT NULL,
+  `company_licensenumber` varchar(50) NOT NULL,
   `company_password` varchar(30) NOT NULL,
   `company_status` int(11) NOT NULL DEFAULT 0,
   `place_id` int(11) NOT NULL,
   `companytype_id` int(11) NOT NULL,
-  `companycategory_id` int(11) NOT NULL
+  `companycategory_id` int(11) NOT NULL,
+  `company_doj` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_company`
 --
 
-INSERT INTO `tbl_company` (`company_id`, `company_name`, `company_email`, `company_contact`, `company_address`, `company_logo`, `company_license`, `company_password`, `company_status`, `place_id`, `companytype_id`, `companycategory_id`) VALUES
-(1, 'wolvx', 'arjunpsff@gmail.com', '24542456', 'Edappal', 'JOBVEX.jpg', 'second_graph.jpg', '1234567', 0, 0, 0, 0),
-(2, 'wolvx', 'arjunpsff@gmail.com', '24542456', 'Edappal', '', '', '1234567', 1, 7, 0, 0),
-(3, 'Arjun', '', '', '', '', '', '', 0, 0, 0, 0),
-(4, 'Akshay.k', 'Akshay122@gmail.com', '7489374743', 'littile(house) ', '1345241.png', 'IMG_20230310_233222.jpg', '34233', 1, 7, 0, 0),
-(5, 'CARECREW', 'Care23@gmail.com', '7748848412', ' Muvattuppuzha,street No.12,ne', '114220.jpg', 'download.jpeg', 'Sebinpaul199', 1, 7, 0, 0),
-(6, 'Indeed', 'indeed@gmail.com', '1234567890', '   Edappal,Malappuram  ', 'JOBVEX.jpg', 'wallpaperflare.com_wallpaper.jpg', '111', 1, 13, 5, 0),
-(7, 'Indeed', 'indeed@gmail.com', '933736363', 'Muvattuppuzha,street No.12,near Bus Stand', '3d-rendering-hexagonal-texture-background.jpg', 'MPG-16_9-3840-2160.jpg', '000', 2, 14, 14, 0);
+INSERT INTO `tbl_company` (`company_id`, `company_name`, `company_email`, `company_contact`, `company_address`, `company_logo`, `company_license`, `company_licensenumber`, `company_password`, `company_status`, `place_id`, `companytype_id`, `companycategory_id`, `company_doj`) VALUES
+(6, 'Indeed', 'indeed@gmail.com', '442345555', 'Near Bus Stand,EdappaL(po),Malappuram', 'wp9904510-msi-4k-wallpapers.jpg', '1-58139259-11c5-46a4-8675-a54c81e83e64 (1).pdf', 'A1234B32', 'Indeed@2025', 1, 3, 1, 1, '2025-09-25'),
+(7, 'AAA', 'aaa@gmail.com', '123456', ' QWERTYKL2345.//', 'beautiful-mountains-landscape.jpg', 'ML_Main.pdf', '123456', '12W3E45RTYU@Aa', 2, 4, 0, 0, '2025-09-26'),
+(8, 'Asagvcsadfhgasfdhgsaghdfashgdf', 'fsdfsdfsd@zxcjhzgcjhzgx', '7520221322', 'sdfsdfdsf\r\ndsfsdf\r\n\r\nsfdfsd\r\nfdsfdsfsdfsdfds', 'istockphoto-494239087-612x612.jpg', 'resume_arjun.pdf', 'sdshdshdshdshdshdsh3323333333', '333333331Qd44444444444444', 0, 0, 4, 0, '2025-09-23'),
+(9, 'Asssssssssssssssssssssssssssss', 'arjunpsofficial@gmail.com', '7553434344', 'aaaa', 'WhatsApp Image 2025-09-21 at 08.23.30_83d1427d.jpg', 'Job_Portal_TOC.pdf', '333333333333', 'Arjun@0222', 0, 0, 3, 3, '2025-10-02'),
+(10, 'ABCD', 'aaaa@gmail.com', '7553434344', 'ffsadsa\r\nsdcsdf\r\nccz', 'WhatsApp Image 2025-09-15 at 10.41.12_25f2a0a4.jpg', 'Job_Portal_Project_Documentation.pdf', '333333333333', 'Arjun@2025', 0, 3, 3, 2, '2025-10-03'),
+(11, 'Asssssssssssssss', 'aaaa@gmail.com', '7352525442', 'frsfsf\r\nsfdf', 'AI-to-the-Edge.png', 'Job_Portal_Project_Documentation.pdf', '333333333333', 'Arjun@2025', 0, 3, 1, 1, '2025-10-10');
 
 -- --------------------------------------------------------
 
@@ -143,10 +144,9 @@ CREATE TABLE `tbl_companycategory` (
 --
 
 INSERT INTO `tbl_companycategory` (`companycategory_id`, `companycategory_name`, `companycategory_status`) VALUES
-(1, 'Private', 0),
+(1, 'Private Limited', 0),
 (2, 'Public', 0),
-(3, 'Government', 1),
-(4, 'government', 0);
+(3, 'Government', 0);
 
 -- --------------------------------------------------------
 
@@ -165,10 +165,34 @@ CREATE TABLE `tbl_companytype` (
 --
 
 INSERT INTO `tbl_companytype` (`companytype_id`, `companytype_name`, `companytype_status`) VALUES
-(2, 'Software Company', 0),
-(3, 'Product-based Company', 1),
-(4, 'IT consulting firms', 0),
-(5, 'Advertisement Company', 0);
+(1, 'Software Company', 0),
+(2, 'Product-based Company', 0),
+(3, 'IT consulting firms', 0),
+(4, 'Advertisement Company', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_complaint`
+--
+
+CREATE TABLE `tbl_complaint` (
+  `complaint_id` int(11) NOT NULL,
+  `complaint_title` varchar(60) NOT NULL,
+  `complaint_content` varchar(300) NOT NULL,
+  `complaint_status` int(60) NOT NULL DEFAULT 0,
+  `complaint_reply` varchar(300) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `complaint_date` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_complaint`
+--
+
+INSERT INTO `tbl_complaint` (`complaint_id`, `complaint_title`, `complaint_content`, `complaint_status`, `complaint_reply`, `user_id`, `complaint_date`) VALUES
+(3, 'For Improving', 'needed to improve more user friendly', 1, 'We appreciate your feedback. The issue has been resolved, and we will ensure this does not happen again.', 1, '2025-09-21'),
+(4, 'Video Editor', 'RRR', 1, 'aaaa', 1, '2025-09-23');
 
 -- --------------------------------------------------------
 
@@ -188,13 +212,11 @@ CREATE TABLE `tbl_district` (
 --
 
 INSERT INTO `tbl_district` (`district_id`, `district_name`, `state_id`, `district_status`) VALUES
-(4, 'kottayam', 13, 1),
-(5, 'idukki', 13, 1),
-(6, 'Palakkad', 13, 1),
-(8, 'Bangalore', 16, 0),
-(9, 'Ernakulam', 13, 1),
-(10, 'Palakkad', 13, 0),
-(11, 'Ernakulam', 13, 0);
+(1, 'Malappuram', 1, 0),
+(2, 'Palakkad', 0, 0),
+(3, 'Coimbatore', 2, 0),
+(4, 'Chennai', 2, 0),
+(5, 'Ernakulam', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -214,17 +236,37 @@ CREATE TABLE `tbl_exam` (
 --
 
 INSERT INTO `tbl_exam` (`exam_id`, `exam_date`, `jobpost_id`, `exam_status`) VALUES
-(1, '2025-06-30', 3, 1),
-(2, '2025-06-29', 0, 1),
-(3, '2025-06-02', 3, 1),
-(4, '2025-06-02', 3, 1),
-(5, '2025-06-18', 3, 1),
-(6, '2025-06-02', 3, 1),
-(7, '2025-06-09', 3, 1),
-(8, '2025-06-24', 3, 1),
-(9, '2025-06-02', 3, 1),
-(10, '2025-06-30', 3, 0),
-(11, '2025-06-09', 5, 0);
+(1, '2025-09-17T09:30', 3, 0),
+(2, '2025-11-05T09:45', 4, 1),
+(3, '2025-11-05T09:00', 4, 1),
+(4, '2025-09-21T11:48', 6, 2),
+(5, '2025-09-24T13:05', 8, 2),
+(6, '2025-09-27T13:05', 8, 2),
+(7, '2025-09-24T13:18', 8, 2),
+(8, '2025-09-24T13:33', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_examtimer`
+--
+
+CREATE TABLE `tbl_examtimer` (
+  `timer_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `current_question_index` int(11) NOT NULL,
+  `time_left` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_examtimer`
+--
+
+INSERT INTO `tbl_examtimer` (`timer_id`, `exam_id`, `current_question_index`, `time_left`, `user_id`) VALUES
+(3, 4, 1, 15, 1),
+(4, 5, 3, 15, 1),
+(5, 7, 1, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -244,9 +286,16 @@ CREATE TABLE `tbl_joblanguage` (
 --
 
 INSERT INTO `tbl_joblanguage` (`joblanguage_id`, `jobpost_id`, `language_id`, `joblanguage_status`) VALUES
-(1, 4, 2, 0),
-(2, 0, 4, 1),
-(3, 3, 2, 0);
+(1, 0, 1, 0),
+(2, 0, 2, 0),
+(3, 0, 3, 1),
+(4, 0, 3, 1),
+(5, 0, 3, 1),
+(6, 0, 3, 1),
+(7, 0, 3, 0),
+(8, 3, 1, 1),
+(9, 5, 1, 0),
+(10, 5, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -257,7 +306,7 @@ INSERT INTO `tbl_joblanguage` (`joblanguage_id`, `jobpost_id`, `language_id`, `j
 CREATE TABLE `tbl_jobpost` (
   `jobpost_id` int(11) NOT NULL,
   `jobpost_title` varchar(100) NOT NULL,
-  `jobpost_content` varchar(500) NOT NULL,
+  `jobpost_content` varchar(1500) NOT NULL,
   `jobpost_salary` varchar(100) NOT NULL,
   `jobpost_date` varchar(50) NOT NULL,
   `jobpost_lastdate` varchar(50) NOT NULL,
@@ -275,11 +324,14 @@ CREATE TABLE `tbl_jobpost` (
 --
 
 INSERT INTO `tbl_jobpost` (`jobpost_id`, `jobpost_title`, `jobpost_content`, `jobpost_salary`, `jobpost_date`, `jobpost_lastdate`, `jobpost_resubmission`, `jobpost_recruitment`, `jobpost_status`, `jobpost_experience`, `jobtype_id`, `company_id`, `category_id`) VALUES
-(3, 'Branch manager', 'dd', '', '2025-06-23', '2025-07-11', '', '0', 0, '3yr', 6, 6, 14),
-(4, 'Finance Manager', 'helloo', '', '2025-06-24', '2025-08-09', '', '0', 0, '3yr', 2, 6, 11),
-(5, 'Administrative Assistant', 'll', '', '2025-06-24', '2025-06-28', '', '0', 0, '1yr', 2, 6, 11),
-(7, 'Software Engineer', 'sss', '', '2025-07-03', '2025-07-23', '', '0', 0, '4yrs', 2, 6, 12),
-(8, 'Account Executive', 'Welcome', '3.5lakh per annum', '2025-07-15', '2025-08-27', '', '0', 0, '1yr', 2, 6, 11);
+(1, 'Finance Manager', 'hhh', '3.5lakh per annum', '2025-07-30', '2025-08-13', '2025-08-08', 'online', 0, '1yr', 1, 1, 4),
+(2, 'Finance Manager', 'Need a full time Employee.', '3.5lakh per annum', '2025-08-21', '2025-08-22', '', '0', 0, '1yr', 0, 6, 0),
+(3, 'Accountant', 'Accountant role', '6 lakh per annum', '2025-08-22', '2025-08-31', '', '0', 0, '7', 2, 6, 2),
+(4, 'Video Editor', 'Remote\r\nFlexible schedule\r\nMalappuram, Kerala', '5,000 - 20,000 a month', '2025-09-15', '2025-10-11', '', '0', 0, 'No need', 3, 6, 5),
+(5, 'Tele Caller(Hindi) - Work From Home - Pan India', 'Responsibilities:\r\n\r\nHandle inbound and outbound calls in Hindi\r\nExplain products and services clearly to customers\r\nFollow scripts and maintain professionalism\r\nUpdate CRM with customer interaction details\r\nRequirements:\r\n\r\n\r\nGood communication in Hindi\r\nBasic computer & smartphone knowledge\r\nFreshers & experienced candidates can apply\r\nMust have phone & internet connection\r\n', '10,000 - 28,000 a month', '2025-09-21', '2025-11-07', '', '1', 0, 'No need', 4, 6, 6),
+(6, 'Software Engineer', 'Our Mission', '₹10,00,000 - ₹32,00,000 a year', '2025-09-21', '2025-09-21', '', '0', 0, '3yr+', 2, 6, 7),
+(7, 'eeeeee', 'cvcxvxcvjhkxjchkvjxhckjvhkjxhv', 'cvcxvxcvxcvxcv', '2025-09-22', '275760-03-31', '', '1', 0, 'sadadsadsa', 4, 6, 3),
+(8, 'DDDDDDDDDDDDDDD', 'DDDDDDDDDDDDD\r\nDDDDDDDDDDDDD\r\nDDDDDDDDDDDDD', '-', '2025-09-24', '2025-09-24', '', '0', 0, '-', 2, 6, 7);
 
 -- --------------------------------------------------------
 
@@ -299,23 +351,19 @@ CREATE TABLE `tbl_jobqualification` (
 --
 
 INSERT INTO `tbl_jobqualification` (`jobqualification_id`, `qualification_id`, `jobpost_id`, `jobqualification_status`) VALUES
-(1, 6, 4, 1),
-(2, 4, 0, 1),
-(3, 4, 3, 1),
-(4, 7, 0, 1),
-(5, 4, 7, 0),
-(6, 6, 8, 1),
-(7, 6, 8, 1),
-(8, 7, 8, 1),
-(9, 4, 8, 1),
-(10, 5, 8, 1),
-(11, 4, 8, 1),
-(12, 7, 8, 1),
-(13, 7, 8, 1),
-(14, 7, 8, 1),
-(15, 7, 8, 1),
-(16, 7, 0, 0),
-(17, 6, 8, 1);
+(1, 1, 1, 0),
+(2, 3, 1, 0),
+(3, 2, 1, 1),
+(4, 4, 1, 0),
+(5, 1, 3, 0),
+(6, 2, 3, 0),
+(7, 5, 4, 0),
+(8, 1, 4, 0),
+(9, 4, 4, 0),
+(10, 2, 4, 0),
+(11, 6, 5, 0),
+(12, 1, 6, 0),
+(13, 2, 6, 0);
 
 -- --------------------------------------------------------
 
@@ -335,10 +383,14 @@ CREATE TABLE `tbl_jobtechnicalskill` (
 --
 
 INSERT INTO `tbl_jobtechnicalskill` (`jobtechnicalskill_id`, `technicalskill_id`, `jobpost_id`, `jobtechnicalskill_status`) VALUES
-(1, 2, 3, 1),
-(2, 4, 0, 1),
-(3, 4, 3, 0),
-(4, 2, 8, 1);
+(1, 1, 1, 0),
+(2, 1, 4, 0),
+(3, 4, 4, 0),
+(4, 4, 4, 1),
+(5, 2, 4, 0),
+(6, 6, 5, 0),
+(7, 5, 5, 0),
+(8, 7, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -357,10 +409,10 @@ CREATE TABLE `tbl_jobtype` (
 --
 
 INSERT INTO `tbl_jobtype` (`jobtype_id`, `jobtype_name`, `jobtype_status`) VALUES
-(2, 'Full Time', 0),
-(6, 'Part Time', 0),
-(7, 'Half Day', 1),
-(8, 'Half Day', 1);
+(1, 'Half Day', 0),
+(2, 'Full day', 0),
+(3, 'Part time', 0),
+(4, 'Work From Home', 0);
 
 -- --------------------------------------------------------
 
@@ -379,10 +431,9 @@ CREATE TABLE `tbl_language` (
 --
 
 INSERT INTO `tbl_language` (`language_id`, `language_name`, `language_status`) VALUES
-(2, 'English', 0),
-(3, 'Malayalam', 1),
-(4, 'Malayalam', 0),
-(5, 'Arabic', 1);
+(1, 'English', 0),
+(2, 'Malayalam', 0),
+(3, 'Hindi', 0);
 
 -- --------------------------------------------------------
 
@@ -403,7 +454,32 @@ CREATE TABLE `tbl_option` (
 
 INSERT INTO `tbl_option` (`option_id`, `option_options`, `question_id`, `option_iscorrect`) VALUES
 (1, 'Option 1', 1, 1),
-(2, 'Option 2', 1, 0);
+(2, 'Option 2', 1, 0),
+(3, 'Option 3', 1, 0),
+(4, 'Option 4', 1, 0),
+(5, '22', 3, 1),
+(6, '333', 3, 0),
+(7, '3333', 3, 0),
+(8, '000', 3, 0),
+(9, 'A', 4, 1),
+(10, 'hu', 4, 0),
+(11, 'mm', 4, 0),
+(12, 'Hiii', 5, 1),
+(13, 'NOOO', 5, 0),
+(14, 'NOOO', 5, 0),
+(15, '22', 5, 0),
+(17, '1111', 6, 1),
+(18, '333', 6, 0),
+(19, '3333wwwwwww', 6, 0),
+(20, 'gggg', 6, 0),
+(21, 'Workers', 8, 0),
+(22, 'Dog', 8, 0),
+(23, 'Childs', 8, 1),
+(24, 'Cat', 8, 0),
+(25, 'Dogs in the ground', 9, 0),
+(26, 'Cats in the ground', 9, 0),
+(27, 'Childs in the ground', 9, 1),
+(28, 'Birds in the ground', 9, 0);
 
 -- --------------------------------------------------------
 
@@ -423,12 +499,11 @@ CREATE TABLE `tbl_place` (
 --
 
 INSERT INTO `tbl_place` (`place_id`, `place_name`, `district_id`, `place_status`) VALUES
-(2, 'Nelliyampathy', 0, 0),
-(3, 'Nelliyampathy', 6, 0),
-(4, 'Ottapalam', 6, 1),
-(5, 'Ottapalam', 6, 1),
-(13, 'Ottapalam', 10, 0),
-(14, 'Muvattupuzha', 11, 0);
+(1, 'Muvattupuzha', 5, 0),
+(2, 'Kothamangalam', 5, 0),
+(3, 'Edappal', 1, 0),
+(4, 'Ponnani', 1, 0),
+(5, 'Puthupaddy', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -447,12 +522,13 @@ CREATE TABLE `tbl_qualification` (
 --
 
 INSERT INTO `tbl_qualification` (`qualification_id`, `qualification_name`, `qualification_status`) VALUES
-(2, 'BCA', 1),
-(3, 'MBA', 1),
-(4, 'BCA', 0),
-(5, 'MBA', 0),
-(6, 'BBA', 0),
-(7, 'BCOM', 0);
+(1, 'BCA', 0),
+(2, 'MCA', 0),
+(3, 'BBA', 1),
+(4, 'MBA', 0),
+(5, 'BBA', 0),
+(6, 'Plus Two ', 0),
+(7, '10th', 0);
 
 -- --------------------------------------------------------
 
@@ -474,13 +550,15 @@ CREATE TABLE `tbl_question` (
 --
 
 INSERT INTO `tbl_question` (`question_id`, `question_title`, `question_file`, `questioncategory_id`, `exam_id`, `question_status`) VALUES
-(1, 'Title 1', '112343.jpg', 1, 3, 0),
-(2, 'Title 2', '', 1, 3, 0),
-(3, 'Title 3', '', 1, 3, 0),
-(4, 'ok', '', 1, 3, 0),
-(5, 'b', '', 1, 5, 0),
-(6, 'Title 5', 'ChatGPT Image May 15, 2025, 11_07_48 PM.png', 1, 3, 0),
-(7, 'Title 6', '112343.jpg', 1, 3, 0);
+(1, 'Select the odd one in the image', '1-4523181c-aa36-408f-b39e-8cc059d8f047.pdf', 1, 1, 0),
+(2, 'pick the odd one in the following', '', 1, 1, 0),
+(3, 'efdg', '', 1, 2, 0),
+(4, 'what?', '', 1, 4, 0),
+(5, 'what?', 'WhatsApp Image 2025-09-22 at 10.03.21_8e92e341.jpg', 1, 5, 0),
+(6, 'efdg', '', 1, 5, 0),
+(7, 'efdg', '', 2, 5, 0),
+(8, 'what?', 'cute-little-children-playing-football-600nw-1119406481.webp', 3, 6, 0),
+(9, 'what?', 'cute-little-children-playing-football-600nw-1119406481.webp', 2, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -493,8 +571,19 @@ CREATE TABLE `tbl_questionanswer` (
   `user_id` int(11) NOT NULL,
   `option_id` int(11) NOT NULL,
   `questionanswer_status` int(11) NOT NULL DEFAULT 0,
-  `questionanswer_date` varchar(50) NOT NULL
+  `questionanswer_date` varchar(50) NOT NULL,
+  `question_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_questionanswer`
+--
+
+INSERT INTO `tbl_questionanswer` (`answer_id`, `user_id`, `option_id`, `questionanswer_status`, `questionanswer_date`, `question_id`) VALUES
+(1, 1, 9, 0, '2025-09-21 08:27:05', 4),
+(2, 1, 15, 0, '2025-09-24 09:41:47', 5),
+(3, 1, 19, 0, '2025-09-24 09:41:51', 6),
+(4, 1, 27, 0, '2025-09-24 09:48:15', 9);
 
 -- --------------------------------------------------------
 
@@ -505,15 +594,21 @@ CREATE TABLE `tbl_questionanswer` (
 CREATE TABLE `tbl_questioncategory` (
   `questioncategory_id` int(11) NOT NULL,
   `questioncategory_name` varchar(100) NOT NULL,
-  `questioncategory_status` int(11) NOT NULL DEFAULT 0
+  `questioncategory_status` int(11) NOT NULL DEFAULT 0,
+  `questioncategory_time` int(11) NOT NULL,
+  `questioncategory_mark` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_questioncategory`
 --
 
-INSERT INTO `tbl_questioncategory` (`questioncategory_id`, `questioncategory_name`, `questioncategory_status`) VALUES
-(1, 'A', 0);
+INSERT INTO `tbl_questioncategory` (`questioncategory_id`, `questioncategory_name`, `questioncategory_status`, `questioncategory_time`, `questioncategory_mark`) VALUES
+(1, 'A', 0, 10, 20),
+(2, 'B', 1, 20, 0),
+(3, 'C', 1, 30, 0),
+(4, 'B', 0, 10, 40),
+(5, 'C', 0, 30, 50);
 
 -- --------------------------------------------------------
 
@@ -545,13 +640,9 @@ CREATE TABLE `tbl_state` (
 --
 
 INSERT INTO `tbl_state` (`state_id`, `state_name`, `state_status`) VALUES
-(2, 'Karnataka', 1),
-(8, 'Goa', 0),
-(10, 'Tamil Nadu', 0),
-(12, 'Tamil Nadu1', 1),
-(13, 'Kerala', 0),
-(14, 'Tamil Nadu1', 1),
-(16, 'Karnataka', 0);
+(1, 'Kerala', 0),
+(2, 'Tamil Nadu', 0),
+(3, 'Karnataka', 0);
 
 -- --------------------------------------------------------
 
@@ -582,9 +673,14 @@ CREATE TABLE `tbl_technicalskill` (
 --
 
 INSERT INTO `tbl_technicalskill` (`technicalskill_id`, `technicalskill_name`, `technicalskill_status`) VALUES
+(1, 'Technical Writing', 0),
 (2, 'Web development', 0),
-(3, 'Technical Writing', 1),
-(4, 'Technical Writing', 0);
+(3, 'Cyber Security ', 0),
+(4, 'Editing', 0),
+(5, '#C ', 0),
+(6, 'C++', 0),
+(7, 'Java', 0),
+(8, 'Python', 0);
 
 -- --------------------------------------------------------
 
@@ -599,25 +695,25 @@ CREATE TABLE `tbl_user` (
   `user_contact` varchar(50) NOT NULL,
   `user_address` varchar(300) NOT NULL,
   `user_photo` varchar(300) NOT NULL,
+  `user_idproofnumber` varchar(50) NOT NULL,
+  `user_idproof` varchar(200) NOT NULL,
   `user_gender` varchar(50) NOT NULL,
   `user_dob` varchar(50) NOT NULL,
   `user_password` varchar(50) NOT NULL,
   `user_status` int(11) NOT NULL DEFAULT 0,
-  `place_id` int(11) NOT NULL
+  `place_id` int(11) NOT NULL,
+  `user_doj` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_contact`, `user_address`, `user_photo`, `user_gender`, `user_dob`, `user_password`, `user_status`, `place_id`) VALUES
-(1, 'Akash', 'arjunps@gmail.com', '0000', 'ffff', 'IMG_20230310_233222.jpg', 'Male', '2005-08-22', 'wolvx', 1, 7),
-(2, 'wolvx', 'arjunpsff@gmail.com', '24542456', 'littile(house)', '', '', '2005-08-22', 'wolvx', 0, 0),
-(3, 'arun', 'arjunpsff@gmail.com', '24542456', 'littile(house)', 'hd_ccab872220caff33425e07ee161afef3.jpg', 'Male', '2005-08-22', 'wolvx', 0, 7),
-(4, 'Akshay.R', 'akshh@gmail.com', '0000', 'ggggg', '114143.jpg', 'Male', '2004-06-13', '987654321', 0, 15),
-(5, 'Aswin', 'Aswin@gmail.com', '22222122', 'Ponnani,Malappuram', '114173.jpg', 'Male', '2003-10-20', '111', 0, 10),
-(6, 'Indeed', 'indeed@gmail.com', '', 'Ponnani,Malappuram', '', '', '', '', 0, 0),
-(10, 'Arjun', 'test@gmail', '6444444411', 'sss', 'cc0ec9ee12d68ae9af646c68eed2ee4b.jpg', 'Male', '2006-01-31', 'Akshay1234', 0, 13);
+INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_contact`, `user_address`, `user_photo`, `user_idproofnumber`, `user_idproof`, `user_gender`, `user_dob`, `user_password`, `user_status`, `place_id`, `user_doj`) VALUES
+(1, 'Arjun PS', 'arjunpsofficial332@gmail.com', '8590100757', 'Ponnani', '1000012852.jpg', '', '', 'Male', '2005-06-28', 'Arjun@2025', 0, 3, '2025-09-25'),
+(2, 'Abhinav B', 'abhinav@gmail.com', '9958599533', 'Puthuppady', '114153.jpg', '', '', 'Male', '2005-03-15', 'Abhinav@2005', 0, 1, '2025-09-26'),
+(3, 'Arjun PS', 'arjun332@gmail.com', '9958599533', 'poroookkara,Edappal(po),Malappuram,Kerala', 'beautiful-mountains-landscape (1).jpg', '123AB321', 'resume.pdf', 'Male', '2005-03-15', 'Arjun@2025', 0, 3, '2025-09-26'),
+(6, 'Arjun PS', 'indeddded@gmail.com', '7553434344', 'ddddd\r\ndddd', 'WhatsApp Image 2025-09-22 at 10.03.21_8e92e341.jpg', '111', 'WhatsApp Image 2025-09-21 at 08.23.30_83d1427d.jpg', 'Male', '2007-08-29', '', 0, 3, '2025-09-30');
 
 -- --------------------------------------------------------
 
@@ -638,7 +734,9 @@ CREATE TABLE `tbl_userlanguage` (
 --
 
 INSERT INTO `tbl_userlanguage` (`userlanguage_id`, `language_id`, `user_id`, `userlanguage_status`, `skill_level`) VALUES
-(7, 2, 5, 0, 'Read,Write,Speak');
+(1, 1, 1, 0, 'Read,Speak'),
+(2, 2, 1, 0, 'Read,Write'),
+(3, 3, 1, 0, 'Read');
 
 -- --------------------------------------------------------
 
@@ -659,7 +757,8 @@ CREATE TABLE `tbl_userqualification` (
 --
 
 INSERT INTO `tbl_userqualification` (`userqualification_id`, `userqualification_certificate`, `qualification_id`, `user_id`, `userqualification_status`) VALUES
-(1, 'JOBVEX.jpg', 4, 4, 1);
+(1, '114194.jpg', 1, 1, 0),
+(2, 'wp9904538-msi-4k-wallpapers.jpg', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -679,8 +778,8 @@ CREATE TABLE `tbl_usertechnicalskill` (
 --
 
 INSERT INTO `tbl_usertechnicalskill` (`usertechnicalskill_id`, `technicalskill_id`, `user_id`, `usertechnicalskill_status`) VALUES
-(1, 2, 4, 0),
-(2, 4, 4, 0);
+(1, 2, 1, 0),
+(2, 1, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -723,6 +822,12 @@ ALTER TABLE `tbl_companytype`
   ADD PRIMARY KEY (`companytype_id`);
 
 --
+-- Indexes for table `tbl_complaint`
+--
+ALTER TABLE `tbl_complaint`
+  ADD PRIMARY KEY (`complaint_id`);
+
+--
 -- Indexes for table `tbl_district`
 --
 ALTER TABLE `tbl_district`
@@ -733,6 +838,12 @@ ALTER TABLE `tbl_district`
 --
 ALTER TABLE `tbl_exam`
   ADD PRIMARY KEY (`exam_id`);
+
+--
+-- Indexes for table `tbl_examtimer`
+--
+ALTER TABLE `tbl_examtimer`
+  ADD PRIMARY KEY (`timer_id`);
 
 --
 -- Indexes for table `tbl_joblanguage`
@@ -862,7 +973,7 @@ ALTER TABLE `tbl_usertechnicalskill`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_application`
@@ -874,85 +985,97 @@ ALTER TABLE `tbl_application`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_company`
 --
 ALTER TABLE `tbl_company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_companycategory`
 --
 ALTER TABLE `tbl_companycategory`
-  MODIFY `companycategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `companycategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_companytype`
 --
 ALTER TABLE `tbl_companytype`
-  MODIFY `companytype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `companytype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_complaint`
+--
+ALTER TABLE `tbl_complaint`
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_district`
 --
 ALTER TABLE `tbl_district`
-  MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `district_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_exam`
 --
 ALTER TABLE `tbl_exam`
-  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_examtimer`
+--
+ALTER TABLE `tbl_examtimer`
+  MODIFY `timer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_joblanguage`
 --
 ALTER TABLE `tbl_joblanguage`
-  MODIFY `joblanguage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `joblanguage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobpost`
 --
 ALTER TABLE `tbl_jobpost`
-  MODIFY `jobpost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `jobpost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobqualification`
 --
 ALTER TABLE `tbl_jobqualification`
-  MODIFY `jobqualification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `jobqualification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobtechnicalskill`
 --
 ALTER TABLE `tbl_jobtechnicalskill`
-  MODIFY `jobtechnicalskill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `jobtechnicalskill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_jobtype`
 --
 ALTER TABLE `tbl_jobtype`
-  MODIFY `jobtype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `jobtype_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_language`
 --
 ALTER TABLE `tbl_language`
-  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_option`
 --
 ALTER TABLE `tbl_option`
-  MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `option_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_place`
 --
 ALTER TABLE `tbl_place`
-  MODIFY `place_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `place_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_qualification`
@@ -964,19 +1087,19 @@ ALTER TABLE `tbl_qualification`
 -- AUTO_INCREMENT for table `tbl_question`
 --
 ALTER TABLE `tbl_question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_questionanswer`
 --
 ALTER TABLE `tbl_questionanswer`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_questioncategory`
 --
 ALTER TABLE `tbl_questioncategory`
-  MODIFY `questioncategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `questioncategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_resubmission`
@@ -988,7 +1111,7 @@ ALTER TABLE `tbl_resubmission`
 -- AUTO_INCREMENT for table `tbl_state`
 --
 ALTER TABLE `tbl_state`
-  MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_subcategory`
@@ -1000,25 +1123,25 @@ ALTER TABLE `tbl_subcategory`
 -- AUTO_INCREMENT for table `tbl_technicalskill`
 --
 ALTER TABLE `tbl_technicalskill`
-  MODIFY `technicalskill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `technicalskill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_userlanguage`
 --
 ALTER TABLE `tbl_userlanguage`
-  MODIFY `userlanguage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userlanguage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_userqualification`
 --
 ALTER TABLE `tbl_userqualification`
-  MODIFY `userqualification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userqualification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_usertechnicalskill`

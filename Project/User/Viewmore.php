@@ -136,7 +136,7 @@ $data1 = $row1->fetch_assoc();
                     </tr>
                     <tr>
                         <th>Last Date</th>
-                        <td><?php echo htmlspecialchars($data['jobpost_lastdate']); ?></td>
+                        <td><?php echo date("d-m-Y", strtotime($data['jobpost_lastdate'])); ?></td>
                     </tr>
                 </table>
                 <div class="text-center mt-4">

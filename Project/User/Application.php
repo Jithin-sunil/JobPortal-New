@@ -85,7 +85,7 @@ if (isset($_POST['btn_submit'])) {
                 <h3>Job Application</h3>
                 <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
                     <div class="form-group">
-                        <label for="txt_file">Upload Application File (PDF)</label>
+                        <label for="txt_file">Upload Resume/CV (PDF)</label>
                         <input type="file" name="txt_file" id="txt_file" class="form-control form-control-file" accept="application/pdf" required>
                     </div>
                     <div class="form-group text-center">

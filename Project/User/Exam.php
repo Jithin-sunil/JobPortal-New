@@ -72,10 +72,9 @@
 </head>
 <body>
     <?php
-    session_start();
     
-    include('../Assets/Connection/Connection.php');\
-    include('Footer.php');
+    include('../Assets/Connection/Connection.php');
+    include('Header.php');
     $jid = isset($_GET['jid']) ? (int)$_GET['jid'] : 0;
     $user_id = isset($_SESSION['uid']) ? (int)$_SESSION['uid'] : 0;
 
@@ -106,7 +105,7 @@
 
     $questions = [];
     if ($exam_id) {
-        $question_query = "SELECT q.question_id, q.question_title, q.question_file, q.questioncategory_id, qc.questioncategory_time 
+        $question_query = "SELECT *
                            FROM tbl_question q 
                            JOIN tbl_questioncategory qc ON q.questioncategory_id = qc.questioncategory_id 
                            WHERE q.exam_id = $exam_id AND q.question_status = 0";
@@ -163,7 +162,7 @@
     }
     $selected_option_id = null;
     if ($current_question && $user_id) {
-        $answer_query = "SELECT option_id FROM tbl_questionanswer WHERE user_id = $user_id AND question_id = {$current_question['id']}";
+        $answer_query = "SELECT * FROM tbl_questionanswer WHERE user_id = $user_id AND question_id = {$current_question['id']}";
         $answer_result = $Con->query($answer_query);
         if ($answer_result && $answer = $answer_result->fetch_assoc()) {
             $selected_option_id = $answer['option_id'];
@@ -289,6 +288,3 @@
     </script>
 </body>
 </html>
-<?php 
-include('Footer.php');
-?>

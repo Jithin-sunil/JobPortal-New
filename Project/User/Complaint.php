@@ -189,7 +189,5 @@ if (isset($_POST['btn_submit'])) {
     </section>
 
     <?php include('Footer.php'); ?>
-
-  
 </body>
 </html>

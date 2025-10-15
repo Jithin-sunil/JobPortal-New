@@ -133,7 +133,7 @@ if (isset($_GET['rid'])) {
                 <h3>Add Job Language</h3>
                 <form id="form1" name="form1" method="post" action="">
                     <div class="form-group">
-                        <label for="sel_language">Language</label>
+                        <label for="sel_language"></label>
                         <select name="sel_language" id="sel_language" class="form-control" required>
                             <option value="">-- Select Language --</option>
                             <?php

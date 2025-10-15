@@ -76,7 +76,7 @@
       <td><?php echo $data['company_email']?></td>
       <td><?php echo $data['company_contact']?></td>
       <td><?php echo $data['company_address']?></td>
-      <td><?php echo $data['company_logo']?></td>
+      <td><img src="../Assets/Files/Company_Registration/Logo/<?php echo $data['company_logo']?>" width="150" height="150" alt=""></td>
       <td><?php echo $data['company_license']?></td>
       <td><?php echo $data['state_name']?></td>
       <td><?php echo $data['district_name']?></td>
