@@ -22,7 +22,7 @@
    $password=$_POST['txt_password'];
    $place=$_POST['sel_place'];
    
-   $insQry="insert into tbl_user(user_name, user_email, user_contact, user_address, user_photo, user_gender, user_dob, place_id, user_password,user_idproofnumber,user_idproof)values('".$name."','".$email."','".$contact."','".$address."','".$photo."','".$gender."','".$dob."','".$place."','".$password."','".$idnumber."','".$idproof."')";
+   $insQry="insert into tbl_user(user_name, user_email, user_contact, user_address, user_photo, user_gender, user_dob, place_id, user_password,user_idproofnumber,user_idproof,user_doj)values('".$name."','".$email."','".$contact."','".$address."','".$photo."','".$gender."','".$dob."','".$place."','".$password."','".$idnumber."','".$idproof."',curdate())";
     
 	if($Con->query($insQry))
 	{

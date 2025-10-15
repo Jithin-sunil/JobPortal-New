@@ -21,8 +21,8 @@ if(isset($_POST['btn_submit'])) {
     $place=$_POST['sel_place'];
     $companytype=$_POST['sel_companytype'];
 
-    $insQry = "insert into tbl_company(company_name, company_email,company_contact, company_address, company_logo, company_license, place_id,companytype_id, companycategory_id, company_password,company_licensenumber) 
-    values('".$name."','".$email."','".$contact."','".$address."','".$logo."','".$license."','".$place."','".$companytype."','".$companycategory."','".$password."','".$licnum."')";
+    $insQry = "insert into tbl_company(company_name, company_email,company_contact, company_address, company_logo, company_license, place_id,companytype_id, companycategory_id, company_password,company_licensenumber,company_doj) 
+    values('".$name."','".$email."','".$contact."','".$address."','".$logo."','".$license."','".$place."','".$companytype."','".$companycategory."','".$password."','".$licnum."',curdate())";
 
     if($Con->query($insQry)) {
         ?>
